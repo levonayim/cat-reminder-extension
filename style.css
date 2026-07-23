@@ -185,6 +185,7 @@
   bottom: 45px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
+  flex-direction: column;
 }
 
 /* RUNNING STATE: Moving around full perimeter */
@@ -201,7 +202,6 @@
 .speech-bubbles {
   position: absolute !important;
   display: flex !important;
-  flex-direction: column !important;
   gap: 4px !important;
   align-items: center !important;
   width: max-content !important;
@@ -309,4 +309,50 @@
     transform: scaleX(-2) scaleY(2) rotate(90deg);
     flex-direction: column;
   }
+}
+
+/* Add to .panel-header in style.css */
+.controls-panel .panel-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: grab !important;
+  
+  /* Disable text selection across all browser engines */
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  
+  /* Prevent touch/drag gestures interfering in Safari */
+  touch-action: none !important;
+}
+
+.controls-panel .panel-header:active {
+  cursor: grabbing !important;
+}
+
+.controls-panel .drag-handle {
+  font-size: 12px !important;
+  color: #aaa !important;
+  margin-right: 4px !important;
+}
+
+/* Ensure expand/collapse arrow has distinct click styling */
+.controls-panel .collapse-icon {
+  font-size: 11px !important;
+  color: #666 !important;
+  padding: 2px 4px !important;
+  cursor: pointer !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Update this selector in style.css */
+.controls-wrapper {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2147483647 !important;
+  font-family: system-ui, -apple-system, sans-serif !important;
+  line-height: normal !important;
 }
