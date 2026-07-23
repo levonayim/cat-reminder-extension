@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Cat Companion",
+  "version": "1.0",
+  "description": "A pixel cat companion and reminder widget.",
+  "permissions": [],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["cat-moveupdown.webp"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

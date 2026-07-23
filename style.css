@@ -1,0 +1,312 @@
+/* ==========================================================================
+   EXTENSION-SAFE STYLES (Notice: ZERO styles targeting 'body' or 'html')
+   ========================================================================== */
+
+/* Wrapper to group the Resting Pet directly above the box window */
+.controls-wrapper {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important; /* Highest z-index so it sits on top of any website */
+  font-family: system-ui, -apple-system, sans-serif !important;
+  line-height: normal !important;
+}
+
+/* Controls Panel Base */
+.controls-panel {
+  background: #ffffff !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  text-align: center !important;
+  width: 224px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Header Styling & Expand/Collapse Trigger */
+.controls-panel .panel-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.controls-panel .panel-header h3 {
+  margin: 0 !important;
+  font-size: 14px !important;
+  color: #333333 !important;
+  font-weight: 600 !important;
+}
+
+.controls-panel .collapse-icon {
+  font-size: 11px !important;
+  color: #666 !important;
+  transition: transform 0.3s ease !important;
+}
+
+/* Collapsible Content Area */
+.controls-panel .panel-content {
+  display: block !important;
+  margin-top: 10px !important;
+}
+
+/* Collapsed State Styles */
+.controls-panel.collapsed .panel-content {
+  display: none !important;
+}
+
+.controls-panel.collapsed .collapse-icon {
+  transform: rotate(0deg) !important;
+}
+
+.controls-panel:not(.collapsed) .collapse-icon {
+  transform: rotate(180deg) !important;
+}
+
+.controls-panel .button-group {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: center !important;
+}
+
+.controls-panel .btn {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, transform 0.1s !important;
+}
+
+.controls-panel .btn:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.controls-panel .btn.action-btn {
+  background-color: #f3e5f5 !important;
+  border-color: #e1bee7 !important;
+  color: #4a148c !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+}
+
+/* Reminder Input Controls */
+.controls-panel .reminder-input-container {
+  display: flex !important;
+  gap: 6px !important;
+  margin-top: 10px !important;
+}
+
+.controls-panel .reminder-input-container input {
+  flex: 1 !important;
+  width: 100% !important;
+  padding: 6px 8px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  background: #fff !important;
+  color: #333 !important;
+}
+
+.controls-panel .btn.add-btn {
+  background-color: #2196f3 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.controls-panel .btn.add-btn:hover {
+  background-color: #1976d2 !important;
+}
+
+/* List of Active Reminders */
+.controls-panel .reminders-list {
+  margin-top: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  max-height: 100px !important;
+  overflow-y: auto !important;
+}
+
+.controls-panel .reminder-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background-color: #f0f4f8 !important;
+  padding: 5px 8px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  color: #333 !important;
+}
+
+.controls-panel .clear-btn {
+  background: none !important;
+  border: none !important;
+  color: #e53935 !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  padding: 0 4px !important;
+}
+
+/* Pixel Pet Container Base */
+.pixel-pet {
+  font-size: 32px !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  transform-origin: center center !important;
+}
+
+.pixel-pet img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* RESTING STATE: Sitting on top of the box window */
+.pixel-pet.resting {
+  position: absolute !important;
+  top: -42px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.pixel-pet.resting .speech-bubbles {
+  bottom: 45px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* RUNNING STATE: Moving around full perimeter */
+.pixel-pet.running {
+  position: fixed !important;
+  animation: walkFullPerimeter 240s linear infinite !important;
+}
+
+.pixel-pet.running .speech-bubbles {
+  animation: bubblePositionAndCounterRotate 240s linear infinite !important;
+}
+
+/* Speech Bubbles Base Styling */
+.speech-bubbles {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  align-items: center !important;
+  width: max-content !important;
+  transform-origin: center center !important;
+}
+
+.bubble {
+  background: #ffffff !important;
+  color: #222 !important;
+  border: 2px solid #333 !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  max-width: 90px !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-align: center !important;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15) !important;
+  animation: popIn 0.2s ease-out !important;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Full Perimeter Movement Animations */
+@keyframes walkFullPerimeter {
+  0% {
+    top: -10px;
+    left: calc(100% - 25px);
+    transform: rotate(180deg) scaleX(-0.5) scaleY(0.5);
+  }
+  24.9% {
+    top: -10px;
+    left: -10px;
+    transform: rotate(180deg) scaleX(-0.5) scaleY(0.5);
+  }
+  25% {
+    top: -10px;
+    left: -10px;
+    transform: rotate(90deg) scaleX(-0.5) scaleY(0.5);
+  }
+  49.9% {
+    top: calc(100% - 25px);
+    left: -10px;
+    transform: rotate(90deg) scaleX(-0.5) scaleY(0.5);
+  }
+  50% {
+    top: calc(100% - 25px);
+    left: -10px;
+    transform: rotate(0deg) scaleX(-0.5) scaleY(0.5);
+  }
+  74.9% {
+    top: calc(100% - 25px);
+    left: calc(100% - 25px);
+    transform: rotate(0deg) scaleX(-0.5) scaleY(0.5);
+  }
+  75% {
+    top: calc(100% - 25px);
+    left: calc(100% - 25px);
+    transform: rotate(-90deg) scaleX(-0.5) scaleY(0.5);
+  }
+  100% {
+    top: -10px;
+    left: calc(100% - 25px);
+    transform: rotate(-90deg) scaleX(-0.5) scaleY(0.5);
+  }
+}
+
+@keyframes bubblePositionAndCounterRotate {
+  0%, 24.9% {
+    top: auto;
+    bottom: 60px;
+    left: auto;
+    right: auto;
+    flex-direction: row;
+    transform: scaleX(-2) scaleY(2) rotate(-180deg);
+  }
+  25%, 49.9% {
+    top: auto;
+    bottom: 60px;
+    left: auto;
+    right: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: scaleX(-2) scaleY(2) rotate(-90deg);
+  }
+  50%, 74.9% {
+    top: auto;
+    bottom: 60px;
+    left: auto;
+    right: auto;
+    align-items: center;
+    flex-direction: row;
+    transform: scaleX(-2) scaleY(2) rotate(0deg);
+  }
+  75%, 100% {
+    top: auto;
+    bottom: 60px;
+    left: auto;
+    right: auto;
+    align-items: flex-end;
+    transform: scaleX(-2) scaleY(2) rotate(90deg);
+    flex-direction: column;
+  }
+}

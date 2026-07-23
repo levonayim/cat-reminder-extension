@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Pet Corner Walker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Controls Panel Container -->
+  <div class="controls-wrapper">
+
+    <!-- Resting Pet Position -->
+    <div id="pixel-pet" class="pixel-pet resting">
+      <div id="speech-bubbles" class="speech-bubbles"></div>
+      <span id="pet-avatar"><img src="cat-moveupdown.webp" alt="Cat Pet" /></span>
+    </div>
+
+    <!-- Controls Panel -->
+    <div id="controls-panel" class="controls-panel collapsed">
+      <!-- Clickable Header for Collapsing/Expanding -->
+      <div class="panel-header" onclick="togglePanel()">
+        <h4>Reminders</h4>
+        <span id="collapse-icon" class="collapse-icon">▼</span>
+      </div>
+
+      <!-- Collapsible Body Content -->
+      <div id="panel-content" class="panel-content">
+        <!-- Toggle Movement Action -->
+        <div class="button-group">
+          <button id="toggle-movement-btn" class="btn action-btn" onclick="toggleMovement()">🐾 Start Moving</button>
+        </div>
+
+        <!-- Reminder Input Section -->
+        <div class="reminder-input-container">
+          <input type="text" id="reminder-input" placeholder="Type a reminder" maxlength="100" />
+          <button class="btn add-btn" onclick="addReminder()">Add</button>
+        </div>
+
+        <!-- Active Reminders List -->
+        <div id="reminders-list" class="reminders-list"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
